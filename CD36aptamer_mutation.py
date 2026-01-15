@@ -20,12 +20,10 @@ def mutate_sequence(template):
     within the specified mutation range.
     """
     seq_list = list(template)
-    # Randomly select positions to mutate with 50% probability
     mutation_positions = [pos for pos in range(mutation_start, mutation_end) if random.random() < 0.5]
 
     for pos in mutation_positions:
         original_base = seq_list[pos]
-        # Choose a different nucleotide
         new_base = random.choice([n for n in nucleotides if n != original_base])
         seq_list[pos] = new_base
 
@@ -43,3 +41,4 @@ with open("mutated_sequences.txt", "w") as f:
         f.write(seq + "\n")
 
 print("mutated_sequences.txt created with 500 unique sequences.")
+
